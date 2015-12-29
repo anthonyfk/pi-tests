@@ -43,8 +43,8 @@ class QuickReact(object):
         GPIO.setup(Pin.BUTTON_A, GPIO.IN, GPIO.PUD_UP)
         GPIO.setup(Pin.BUTTON_B, GPIO.IN, GPIO.PUD_UP)
 
-        GPIO.add_event_detect(Pin.BUTTON_A, GPIO.RISING, callback=self.on_button_press)
-        GPIO.add_event_detect(Pin.BUTTON_B, GPIO.RISING, callback=self.on_button_press)
+        GPIO.add_event_detect(Pin.BUTTON_A, GPIO.RISING, callback=self.on_button_press, bouncetime=200)
+        GPIO.add_event_detect(Pin.BUTTON_B, GPIO.RISING, callback=self.on_button_press, bouncetime=200)
 
     def on_button_press(self, pin):
         if not self.can_push:
